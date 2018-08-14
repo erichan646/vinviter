@@ -99,30 +99,6 @@ class DashboardController extends Controller
 
 	public function getSavedEvents(Request $request)
 	{
-
-		if($request->ajax()){
-			$eventsTemplate = '';
-			$this->validate($request, ['after' => 'required|numeric']);
-			$events = $this->owner->events()->saved()->orderBy('id', 'DESC')->where('id', '<', $request->after)->take(config('common.events_per_load'))->get();
-			if($events){
-				foreach($events as $event)
-				{
-					$eventsTemplate .= View::make('dashboard.savedEvent_row', compact('event'));
-				}
-			}
-			if($eventsTemplate){
-				return response(['html' => $eventsTemplate, 'leftOff' => $events->last()->id], 200);
-			}
-			return response("error", 400);
-		}
-		$events = $this->owner->events()->saved()->orderBy('id', 'DESC')->paginate(config('common.events_per_load'));
-		return view('dashboard.savedEvents', compact('events'));
-	}
-
-
-	public function getSavedPages(Request $request)
-	{
-
 		if($request->ajax()){
 			$pagesTemplate = '';
 			$this->validate($request, ['after' => 'required|numeric']);
@@ -139,8 +115,31 @@ class DashboardController extends Controller
 			}
 			return response("error", 400);
 		}
+		return view('dashboard.savedEvents', compact('events'));
+	}
 
-		$pages = $this->owner->pages()->saved()->with('getPageType')->orderBy('id', 'DESC')->paginate(config('common.pages_per_load'));
+
+	public function getSavedPages(Request $request)
+	{
+		$inviteLists = InviteList::where('user_id', Auth::id())->orderBy('id', 'DESC')->paginate(config('common.general_items_per_load'), ['*'], 'page', 1);
+
+
+		if($request->ajax()){
+			$pagesTemplate = '';
+			$this->validate($request, ['after' => 'required|numeric']);
+			$pages = $this->owner->pages()->with('getPageType', 'inviteLists')->where('id', '<', $request->after)->orderBy('id', 'DESC')->take(config('common.pages_per_load'))->get();
+
+			if($pages){
+				foreach($pages as $page)
+				{
+					$pagesTemplate .= View::make('dashboard.creatorPage_row', compact('page', 'inviteLists'));
+				}
+			}
+			if($pagesTemplate){
+				return response(['html' => $pagesTemplate, 'leftOff' => $pages->last()->id], 200);
+			}
+			return response("error", 400);
+		}
 		return view('dashboard.savedPages', compact('pages'));
 	}
 
