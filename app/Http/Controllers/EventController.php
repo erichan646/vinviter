@@ -1025,10 +1025,10 @@ return redirect()->route('events.preview', $event->id);
 			$attendeesTemplate = '';
 			$attendees = $event->attendees()->paginate(config('common.event_attendes_popup_per_load'));
 
-			foreach($attendees as $attendee)
+			/*foreach($attendees as $attendee)
 			{
 				$attendeesTemplate .= View::make('events.event_attendee_popup_template', compact('attendee'));
-			};
+			};*/
 
 			return response($attendeesTemplate, 200);
 		}
