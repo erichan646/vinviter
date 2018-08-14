@@ -1303,7 +1303,7 @@ return redirect()->route('events.preview', $event->id);
 
 		$usersHTML = '';
 
-		foreach($users as $user){
+		/*foreach($users as $user){
 			$inviteText = 'Invite';
 			$inviteClass = '';
 			if($user->wasInvitedToEvents->count() > 0){
@@ -1311,7 +1311,7 @@ return redirect()->route('events.preview', $event->id);
 				$inviteClass = 'added';
 			}
 			$usersHTML .= "<div class=\"column user\" data-id=\"$user->id\"><a href=\"/users/$user->username\" target=\"_blank\"><img src=\"/images/small59/$user->avatarFullPath\"></a><div><span class=\"name\">$user->name</span><button class=\"add-button $inviteClass\" type=\"button\" data-id=\"$user->id\" data-name=\"$user->name\" data-username=\"$user->username\">$inviteText</button></div></div>";
-		}
+		}*/
 		return response($usersHTML, 200);
 	}
 
