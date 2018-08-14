@@ -1174,8 +1174,8 @@ return redirect()->route('events.preview', $event->id);
 		$now = Carbon::now('utc')->toDateTimeString(); // later used for timestamps in bulk insert
 
 		/* Get users to exclude from invitation, the creator of the event and admins */
-		$excludedUsers = $event->admins()->select('id')->get();
-		$excludedUsers = $excludedUsers->keyBy('id')->keys()->toArray();
+		//J$excludedUsers = $event->admins()->select('id')->get();
+		//J$excludedUsers = $excludedUsers->keyBy('id')->keys()->toArray();
 		$excludedUsers[] = $event->user_id;
 
 		foreach($list->members as $m){
