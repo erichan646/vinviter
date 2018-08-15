@@ -1270,10 +1270,10 @@ return redirect()->route('events.preview', $event->id);
 		$lists = Auth::user()->inviteLists()->orderBy('id', 'DESC')->paginate(config('common.general_items_per_load'));
 		$listsTemplate = '';
 
-		foreach($lists as $list)
+		/* foreach($lists as $list)
 		{
 			$listsTemplate .= View::make('dashboard.invite_list_event_popup_row', compact('list', 'event'));
-		}
+		} */
 		if($listsTemplate){
 			return response($listsTemplate, 200);
 		}
