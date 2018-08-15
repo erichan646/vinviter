@@ -71,9 +71,10 @@ class HomeController extends Controller
     }
 
     /* Static pages */
-    public function getPrivacyPage(){
+/*    public function getPrivacyPage(){
         return view('static.privacy');
     }
+*/
     public function getTermsPage(){
         return view('static.terms');
     }
