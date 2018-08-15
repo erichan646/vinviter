@@ -1025,10 +1025,10 @@ return redirect()->route('events.preview', $event->id);
 			$attendeesTemplate = '';
 			$attendees = $event->attendees()->paginate(config('common.event_attendes_popup_per_load'));
 
-			foreach($attendees as $attendee)
+			/*foreach($attendees as $attendee)
 			{
 				$attendeesTemplate .= View::make('events.event_attendee_popup_template', compact('attendee'));
-			};
+			};*/
 
 			return response($attendeesTemplate, 200);
 		}
@@ -1174,8 +1174,8 @@ return redirect()->route('events.preview', $event->id);
 		$now = Carbon::now('utc')->toDateTimeString(); // later used for timestamps in bulk insert
 
 		/* Get users to exclude from invitation, the creator of the event and admins */
-		$excludedUsers = $event->admins()->select('id')->get();
-		$excludedUsers = $excludedUsers->keyBy('id')->keys()->toArray();
+		//J$excludedUsers = $event->admins()->select('id')->get();
+		//J$excludedUsers = $excludedUsers->keyBy('id')->keys()->toArray();
 		$excludedUsers[] = $event->user_id;
 
 		foreach($list->members as $m){
@@ -1270,10 +1270,10 @@ return redirect()->route('events.preview', $event->id);
 		$lists = Auth::user()->inviteLists()->orderBy('id', 'DESC')->paginate(config('common.general_items_per_load'));
 		$listsTemplate = '';
 
-		foreach($lists as $list)
+		/* foreach($lists as $list)
 		{
 			$listsTemplate .= View::make('dashboard.invite_list_event_popup_row', compact('list', 'event'));
-		}
+		} */
 		if($listsTemplate){
 			return response($listsTemplate, 200);
 		}
@@ -1303,7 +1303,7 @@ return redirect()->route('events.preview', $event->id);
 
 		$usersHTML = '';
 
-		foreach($users as $user){
+		/*foreach($users as $user){
 			$inviteText = 'Invite';
 			$inviteClass = '';
 			if($user->wasInvitedToEvents->count() > 0){
@@ -1311,7 +1311,7 @@ return redirect()->route('events.preview', $event->id);
 				$inviteClass = 'added';
 			}
 			$usersHTML .= "<div class=\"column user\" data-id=\"$user->id\"><a href=\"/users/$user->username\" target=\"_blank\"><img src=\"/images/small59/$user->avatarFullPath\"></a><div><span class=\"name\">$user->name</span><button class=\"add-button $inviteClass\" type=\"button\" data-id=\"$user->id\" data-name=\"$user->name\" data-username=\"$user->username\">$inviteText</button></div></div>";
-		}
+		}*/
 		return response($usersHTML, 200);
 	}
 
