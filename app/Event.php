@@ -112,7 +112,8 @@ class Event extends Model
 
 
     public function getNumberOfCommentsAttribute(){
-        return $this->comments->count();
+        // return $this->comments->count();
+		return $this->attendees()->count();
     }
 
 
