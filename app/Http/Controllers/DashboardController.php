@@ -99,10 +99,10 @@ class DashboardController extends Controller
 
 	public function getSavedEvents(Request $request)
 	{
-//		if($request->ajax()){
+		if($request->ajax()){
 			$pagesTemplate = '';
 			$this->validate($request, ['after' => 'required|numeric']);
-//			$pages = $this->owner->pages()->saved()->with('getPageType')->where('id', '<', $request->after)->orderBy('id', 'DESC')->take(config('common.pages_per_load'))->get();
+			$pages = $this->owner->pages()->saved()->with('getPageType')->where('id', '<', $request->after)->orderBy('id', 'DESC')->take(config('common.pages_per_load'))->get();
 
 			if($pages){
 				foreach($pages as $page)
@@ -111,11 +111,11 @@ class DashboardController extends Controller
 				}
 			}
 			if($pagesTemplate){
-//				return response(['html' => $pagesTemplate, 'leftOff' => $pages->last()->id], 200);
+				return response(['html' => $pagesTemplate, 'leftOff' => $pages->last()->id], 200);
 			}
 			return response("error", 400);
 		}
-//		return view('dashboard.savedEvents', compact('events'));
+		return view('dashboard.savedEvents', compact('events'));
 	}
 
 
