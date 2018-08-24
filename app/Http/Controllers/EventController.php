@@ -1277,7 +1277,7 @@ return redirect()->route('events.preview', $event->id);
 		if($listsTemplate){
 			return response($listsTemplate, 200);
 		}
-		return response("error", 400);
+		return response("error", 200);
 
 	}
 
