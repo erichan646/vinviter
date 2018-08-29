@@ -93,6 +93,9 @@
 			<div class="row text-center">
 				{{-- <a href="{{ route('upcoming') }}" class="button explore-button">Explore</a> --}}
 			</div>
+			<div class="row text-center">
+				{{-- <a href="{{ route('upcoming') }}" class="button explore-button">Explore</a> --}}
+			</div>
 		</div>
 		<div class="row">
 			<div class="small-12 columns-small-centered">
