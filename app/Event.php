@@ -99,9 +99,9 @@ class Event extends Model
 
     public function getEndsAtAttribute($value){
         $carbon = new Carbon($value, 'UTC');
-        if(\Auth::check()){
+        /*J if(\Auth::check()){
             $carbon = $carbon->timezone(\Auth::user()->timezone);
-        }
+        }*/
         return $carbon;
     }
 
