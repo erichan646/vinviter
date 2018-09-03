@@ -121,29 +121,6 @@
 					</a>
 				</p>
 			</div>
-			<div class="small-12 columns-small-centered">
-				<h5 class="links-to-social-heading">Follow us</h5>
-				<p class="links-to-social">
-					<a href="https://www.facebook.com/Vinviter-1458318067744581/" target="_blank">
-						<span class="fa-stack fa-lg">
-							<i class="fa fa-circle fa-stack-2x"></i>
-							<i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-						</span>
-					</a>
-					<a href="https://twitter.com/Vinviter" target="_blank">
-						<span class="fa-stack fa-lg">
-							<i class="fa fa-circle fa-stack-2x"></i>
-							<i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-						</span>
-					</a>
-					<a href="https://plus.google.com/100425952813067892726/about" target="_blank">
-						<span class="fa-stack fa-lg">
-							<i class="fa fa-circle fa-stack-2x"></i>
-							<i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
-						</span>
-					</a>
-				</p>
-			</div>
 		</div>
 	</section>
 	@include('layouts.footer')
