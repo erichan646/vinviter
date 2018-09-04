@@ -73,14 +73,6 @@
 						</p> 
 					</div>
 				</div>
-				<div class="column">
-					<div class="box">
-						<span class="box-heading">Invite</span>
-						<p>
-							Create amazing invitations for the interested parties all around the world and make your events the coolest, happily visited and most talked about in the area!
-						</p> 
-					</div>
-				</div>
 				<!--<div class="column">
 					<div class="box">
 						<span class="box-heading">Never forget</span>
@@ -89,9 +81,6 @@
 						</p> 
 					</div>
 				</div>-->
-			</div>
-			<div class="row text-center">
-				{{-- <a href="{{ route('upcoming') }}" class="button explore-button">Explore</a> --}}
 			</div>
 			<div class="row text-center">
 				{{-- <a href="{{ route('upcoming') }}" class="button explore-button">Explore</a> --}}
