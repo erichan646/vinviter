@@ -21,7 +21,6 @@
 					@if(Auth::check())
 					<div class="user-bar float-right">
 						<ul class="dropdown menu" data-dropdown-menu data-disable-hover="true" data-click-open="true" data-alignment="right">
-							{{-- <li><a href="" class="fa fa-refresh action-icons"></a></li> --}}
 							<li>
 								<a href="{{ route('user.profile', Auth::user()->username) }}" class="profile-picture">
 									<img src="{{ url('images/small41/'.Auth::user()->avatarFullPath) }}">
@@ -30,7 +29,7 @@
 							<li>
 								<a href="#">{{ Auth::user()->name }}</a>
 								<ul class="menu">
-									<li><a href="{{ route('user.profile', Auth::user()->username) }}">My Profile</a></li>
+									<li><a href="{{ route('user.profile', Auth::user()->username) }}">User Profile</a></li>
 									<li><a href="{{ route('dashboard.upcomingEvents') }}">Dashboard</a></li>
 									<li><a href="{{ route('settings.account') }}">Settings</a></li>
 									<li><a href="{{ route('auth.logout') }}">Log out</a></li>
@@ -81,9 +80,6 @@
 						</p> 
 					</div>
 				</div>-->
-			</div>
-			<div class="row text-center">
-				{{-- <a href="{{ route('upcoming') }}" class="button explore-button">Explore</a> --}}
 			</div>
 		</div>
 		<div class="row">
