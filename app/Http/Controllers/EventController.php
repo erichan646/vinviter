@@ -1254,7 +1254,7 @@ return redirect()->route('events.preview', $event->id);
 		];
 
 		if($notif && $invitation){
-			Invitation::firstOrCreate($invitation);
+			# Invitation::firstOrCreate($invitation);
 			Notification::firstOrCreate($notif);
 			return response('Invited', 200);
 		}
