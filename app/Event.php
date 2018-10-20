@@ -131,11 +131,11 @@ class Event extends Model
 
 
     public function getMainImageFullPathAttribute(){
-        $mainImage = $this->mainImage();
+        # $mainImage = $this->mainImage();
 
-        if($mainImage){
-            return 'events/'.$this->id.'/images/'.$mainImage->name;
-        }
+        # if($mainImage){
+        #     return 'events/'.$this->id.'/images/'.$mainImage->name;
+        # }
         return 'default/event/all/avatar.png';
     }
 
