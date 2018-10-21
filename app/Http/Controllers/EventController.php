@@ -1272,7 +1272,7 @@ return redirect()->route('events.preview', $event->id);
 
 		foreach($lists as $list)
 		{
-			$listsTemplate .= View::make('dashboard.invite_list_event_popup_row', compact('list', 'event'));
+			# $listsTemplate .= View::make('dashboard.invite_list_event_popup_row', compact('list', 'event'));
 		}
 		if($listsTemplate){
 			return response($listsTemplate, 200);
